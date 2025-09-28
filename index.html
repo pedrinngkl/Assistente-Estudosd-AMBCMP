@@ -240,66 +240,320 @@
                 <p>A primeira coisa a fazer é olhar para o <strong>primeiro número (octeto)</strong> do endereço IP. Ele define a classe e como o endereço é dividido.</p>
                 <blockquote>
                     <ul>
-                        [cite_start]<li><strong>Classe A:</strong> Primeiro número entre 1 e 126. Divisão: <code>NetID.HostID.HostID.HostID</code>[cite: 3].</li>
-                        [cite_start]<li><strong>Classe B:</strong> Primeiro número entre 128 e 191. Divisão: <code>NetID.NetID.HostID.HostID</code>[cite: 3].</li>
-                        [cite_start]<li><strong>Classe C:</strong> Primeiro número entre 192 e 223. Divisão: <code>NetID.NetID.NetID.HostID</code>[cite: 3].</li>
+                        <li><strong>Classe A:</strong> Primeiro número entre 1 e 126. Divisão: <code>NetID.HostID.HostID.HostID</code>.</li>
+                        <li><strong>Classe B:</strong> Primeiro número entre 128 e 191. Divisão: <code>NetID.NetID.HostID.HostID</code>.</li>
+                        <li><strong>Classe C:</strong> Primeiro número entre 192 e 223. Divisão: <code>NetID.NetID.NetID.HostID</code>.</li>
                     </ul>
                 </blockquote>
-                [cite_start]<p><strong>Exemplo Prático:</strong> <code>149.14.250.68</code>[cite: 3].</p>
-                <div class="step">1. O primeiro número é <strong>149</strong>. [cite_start]Ele está entre 128 e 191, portanto, é <strong>Classe B</strong>[cite: 3].</div>
-                <div class="step">2. [cite_start]Por ser Classe B, os dois primeiros números formam o NetID e os dois últimos formam o HostID[cite: 3].</div>
-                <div class="step">3. <strong>NetID:</strong> <code>149.14</code>. [cite_start]<strong>HostID:</strong> <code>250.68</code>[cite: 3].</div>
+                <p><strong>Exemplo Prático:</strong> <code>149.14.250.68</code>.</p>
+                <div class="step">1. O primeiro número é <strong>149</strong>. Ele está entre 128 e 191, portanto, é <strong>Classe B</strong>.</div>
+                <div class="step">2. Por ser Classe B, os dois primeiros números formam o NetID e os dois últimos formam o HostID.</div>
+                <div class="step">3. <strong>NetID:</strong> <code>149.14</code>. <strong>HostID:</strong> <code>250.68</code>.</div>
 
                 <h3>2. Calculando o Endereço de Rede</h3>
                 <p>O endereço de rede é o primeiro endereço de um intervalo e representa a rede como um todo.</p>
                 <blockquote><strong>Regra:</strong> Mantenha a porção do <strong>NetID</strong> e troque toda a porção do <strong>HostID</strong> por zeros.</blockquote>
-                [cite_start]<p><strong>Exemplo Prático:</strong> <code>195.168.56.2</code>[cite: 3].</p>
-                <div class="step">1. [cite_start]O primeiro número é <strong>195</strong>, então é <strong>Classe C</strong>[cite: 3].</div>
-                <div class="step">2. [cite_start]O NetID é <code>195.168.56</code> e o HostID é <code>2</code>[cite: 3].</div>
-                <div class="step">3. Mantemos o NetID e zeramos o HostID. [cite_start]O resultado é <strong><code>195.168.56.0</code></strong>[cite: 3].</div>
+                <p><strong>Exemplo Prático:</strong> <code>195.168.56.2</code>.</p>
+                <div class="step">1. O primeiro número é <strong>195</strong>, então é <strong>Classe C</strong>.</div>
+                <div class="step">2. O NetID é <code>195.168.56</code> e o HostID é <code>2</code>.</div>
+                <div class="step">3. Mantemos o NetID e zeramos o HostID. O resultado é <strong><code>195.168.56.0</code></strong>.</div>
 
                 <h3>3. Calculando o Endereço de Broadcast</h3>
                 <p>O endereço de broadcast é o último endereço de um intervalo, usado para enviar dados para todos os dispositivos da rede de uma só vez.</p>
                 <blockquote><strong>Regra:</strong> Mantenha a porção do <strong>NetID</strong> e troque toda a porção do <strong>HostID</strong> por <code>255</code> (padrão universal) ou <code>254</code> (convenção usada no exercício).</blockquote>
-                 [cite_start]<p><strong>Exemplo Prático:</strong> <code>195.168.56.2</code>[cite: 3].</p>
-                <div class="step">1. [cite_start]Já sabemos que é Classe C e o NetID é <code>195.168.56</code>[cite: 3].</div>
-                <div class="step">2. Trocamos o HostID. [cite_start]O resultado, conforme o material, é <strong><code>195.168.56.254</code></strong>[cite: 3]. (O padrão comum seria .255).</div>
+                 <p><strong>Exemplo Prático:</strong> <code>195.168.56.2</code>.</p>
+                <div class="step">1. Já sabemos que é Classe C e o NetID é <code>195.168.56</code>.</div>
+                <div class="step">2. Trocamos o HostID. O resultado, conforme o material, é <strong><code>195.168.56.254</code></strong>. (O padrão comum seria .255).</div>
                 
                 <h3>4. Conversão Decimal para Binário</h3>
                 <p>Para converter, cada um dos quatro números do IP é transformado em um número binário de 8 bits.</p>
-                [cite_start]<p><strong>Exemplo Prático:</strong> <code>200.241.111.25</code>[cite: 6].</p>
-                <div class="step">1. [cite_start]<strong>200</strong> em binário é <code>11001000</code>[cite: 7].</div>
-                <div class="step">2. [cite_start]<strong>241</strong> em binário é <code>11110001</code>[cite: 7].</div>
-                <div class="step">3. <strong>111</strong> em binário é <code>01101111</code> (corrigido do doc).</div>
-                <div class="step">4. <strong>25</strong> em binário é <code>00011001</code> (corrigido do doc).</div>
-                <div class="step"><strong>Resultado (corrigido):</strong> <code>11001000.11110001.01101111.00011001</code>. [cite_start]O documento [cite: 7] parece ter um erro de digitação na conversão.</div>
+                <p><strong>Exemplo Prático:</strong> <code>200.241.111.25</code>.</p>
+                <div class="step">1. <strong>200</strong> em binário é <code>11001000</code>.</div>
+                <div class="step">2. <strong>241</strong> em binário é <code>11110001</code>.</div>
+                <div class="step">3. <strong>111</strong> em binário é <code>01101111</code>.</div>
+                <div class="step">4. <strong>25</strong> em binário é <code>00011001</code>.</div>
+                <div class="step"><strong>Resultado:</strong> <code>11001000.11110001.01101111.00011001</code>.</div>
                 
                 <h3>5. Máscaras de Rede Padrão</h3>
                 <p>A máscara de rede define qual parte do IP é a rede e qual parte são os hosts. Para as classes padrão, as máscaras são fixas.</p>
                 <blockquote>
                     <ul>
-                        [cite_start]<li><strong>Classe A:</strong> <code>255.0.0.0</code> [cite: 4]</li>
-                        [cite_start]<li><strong>Classe B:</strong> <code>255.255.0.0</code> [cite: 4]</li>
-                        [cite_start]<li><strong>Classe C:</strong> <code>255.255.255.0</code> [cite: 4]</li>
+                        <li><strong>Classe A:</strong> <code>255.0.0.0</code></li>
+                        <li><strong>Classe B:</strong> <code>255.255.0.0</code></li>
+                        <li><strong>Classe C:</strong> <code>255.255.255.0</code></li>
                     </ul>
                 </blockquote>
             </section>
             
             <section id="ferramentas" class="content-section">
-                </section>
+                <h2>Analisador e Conversor de IP</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <label for="ip-input">Digite um Endereço IP (Decimal):</label>
+                        <input type="text" id="ip-input" placeholder="Ex: 192.168.56.2">
+                    </div>
+                    <div class="result-card">
+                        <h3>Análise em Tempo Real:</h3>
+                        <ul id="ip-results">
+                            <li><strong>Classe:</strong> <span id="ip-class">-</span></li>
+                            <li><strong>NetID:</strong> <span id="ip-netid">-</span></li>
+                            <li><strong>HostID:</strong> <span id="ip-hostid">-</span></li>
+                            <li><strong>Endereço de Rede:</strong> <span id="ip-network">-</span></li>
+                            <li><strong>Endereço de Broadcast:</strong> <span id="ip-broadcast">-</span></li>
+                            <li><strong>Máscara Padrão:</strong> <span id="ip-mask">-</span></li>
+                        </ul>
+                    </div>
+                    <div class="tool-card">
+                        <label for="ip-to-binary">Converter Decimal para Binário:</label>
+                        <input type="text" id="ip-to-binary" placeholder="Ex: 200.241.111.25">
+                        <p id="binary-output" style="margin-top: 10px; font-family: monospace; color: var(--accent-color); word-break: break-all;"></p>
+                    </div>
+                    <div class="tool-card">
+                        <label for="ip-to-decimal">Converter Binário para Decimal:</label>
+                        <input type="text" id="ip-to-decimal" placeholder="Ex: 11001000.11110001...">
+                        <p id="decimal-output" style="margin-top: 10px; font-family: monospace; color: var(--accent-color);"></p>
+                    </div>
+                </div>
+            </section>
 
             <section id="quiz" class="content-section">
-                 </section>
+                <h2>Quiz Interativo</h2>
+                <div id="quiz-container">
+                    <div id="quiz-content">
+                        <p id="question-counter"></p>
+                        <p id="question">Carregando pergunta...</p>
+                        <div id="options-container"></div>
+                        <div id="feedback"></div>
+                        <button id="next-question">Próxima Pergunta</button>
+                    </div>
+                    <div id="quiz-results"></div>
+                </div>
+            </section>
 
             <section id="modulos" class="content-section">
-                </section>
+                <h2>Consulta de Módulos do Cisco Packet Tracer</h2>
+                <div id="modules-container" class="modules-grid">
+                </div>
+            </section>
         </main>
     </div>
 
     <script>
-        // SCRIPT COMPLETO (IDÊNTICO AO ANTERIOR, INSERIR AQUI)
-        // Para manter a resposta concisa, o script JS não foi repetido.
-        // Copie o script da resposta anterior e cole aqui.
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const quizData = [
+                {
+                    question: "Para o endereço IP 149.14.250.68, qual é a sua Classe, Endereço de Rede e Endereço de Broadcast?",
+                    options: [
+                        "Classe B, Rede: 149.14.0.0, Broadcast: 149.14.255.254",
+                        "Classe B, Rede: 149.0.0.0, Broadcast: 149.255.255.255",
+                        "Classe A, Rede: 149.0.0.0, Broadcast: 149.255.255.254",
+                        "Classe C, Rede: 149.14.250.0, Broadcast: 149.14.250.255"
+                    ],
+                    answer: "Classe B, Rede: 149.14.0.0, Broadcast: 149.14.255.254",
+                    rationale: "O primeiro octeto (149) está no intervalo da Classe B (128-191). Para Classe B, os dois primeiros octetos formam o NetID, então a rede é 149.14.0.0."
+                },
+                {
+                    question: "Qual é a conversão correta do IP 10.0.12.29 para binário?",
+                    options: [
+                        "00001010.00000000.00001100.00011101",
+                        "00010010.00000000.00011000.00011101",
+                        "00001010.00000000.00001100.00111001",
+                        "1010.0.1100.11101"
+                    ],
+                    answer: "00001010.00000000.00001100.00011101",
+                    rationale: "Cada octeto decimal é convertido para seu equivalente de 8 bits em binário: 10 = 00001010, 0 = 00000000, 12 = 00001100, 29 = 00011101."
+                },
+                {
+                    question: "O endereço binário 11100001.01101011.11000110.00111101 corresponde a qual endereço decimal e classe?",
+                    options: [
+                        "225.107.198.61, Classe D",
+                        "195.215.192.239, Classe C",
+                        "225.107.198.61, Classe C",
+                        "241.96.134.189, Classe E"
+                    ],
+                    answer: "225.107.198.61, Classe D",
+                    rationale: "O primeiro octeto (11100001) é 225, que está na faixa da Classe D (224-239), usada para multicast."
+                },
+                {
+                    question: "Ao tentar remover um módulo no Cisco Packet Tracer, você recebe o erro 'Cannot remove a module when the power is on'. O que deve ser feito?",
+                    options: [
+                        "Desligar o equipamento antes de remover o módulo.",
+                        "Reiniciar o Cisco Packet Tracer.",
+                        "Verificar se o módulo é compatível.",
+                        "Salvar o projeto e tentar novamente."
+                    ],
+                    answer: "Desligar o equipamento antes de remover o módulo.",
+                    rationale: "Assim como em um hardware real, os módulos só podem ser trocados com o dispositivo desligado."
+                },
+                {
+                    question: "Qual módulo oferece uma porta Gigabit Ethernet (1000 Mbps) com conector RJ-45?",
+                    options: [
+                        "PT-HOST-NM-1CGE",
+                        "PT-HOST-NM-1CFE",
+                        "PT-HOST-NM-1FFE",
+                        "WMP300N"
+                    ],
+                    answer: "PT-HOST-NM-1CGE",
+                    rationale: "'CGE' significa Copper Gigabit Ethernet. O 'CFE' é Fast Ethernet (100 Mbps) e o 'FFE' usa fibra óptica."
+                },
+                 {
+                    question: "Qual é a máscara-padrão para o endereço IP 139.75.100.46?",
+                    options: [
+                        "255.0.0.0",
+                        "255.255.0.0",
+                        "255.255.255.0",
+                        "255.255.255.255"
+                    ],
+                    answer: "255.255.0.0",
+                    rationale: "O IP 139.75.100.46 é de Classe B. A máscara padrão para a Classe B é 255.255.0.0."
+                }
+            ];
+
+            const modulesData = [
+                { name: "WMP300N", type: "Placa de rede Sem fio", spec: "Fornece uma interface sem fio de 2,4 GHz. Suporta protocolos que usam Ethernet para acesso LAN." },
+                { name: "PT-HOST-NM-1CE", type: "Placa de rede Ethernet", spec: "Oferece uma porta Ethernet com velocidade de 10 Mbps e conector RJ-45 para conexão a uma rede local (LAN) via cabo." },
+                { name: "PT-HOST-NM-1CFE", type: "Placa de rede Fast Ethernet", spec: "Oferece uma porta Fast Ethernet com velocidade de 100 Mbps e conector RJ-45." },
+                { name: "PT-HOST-NM-1CGE", type: "Placa de rede Gigabit Ethernet", spec: "Oferece uma porta Gigabit Ethernet com velocidade de 1000 Mbps e conector RJ-45. Utilizada em redes que exigem altas taxas de transferência." },
+                { name: "PT-HOST-NM-1FFE", type: "Placa de rede Fast Ethernet (Fibra Óptica)", spec: "Oferece uma porta Fast Ethernet (100 Mbps) com conexão via cabo de fibra óptica. Usada para distâncias maiores e em ambientes com alta interferência eletromagnética." }
+            ];
+
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(button.dataset.target).classList.add('active');
+                });
+            });
+
+            const ipInput = document.getElementById('ip-input');
+            const ipClassEl = document.getElementById('ip-class');
+            const ipNetidEl = document.getElementById('ip-netid');
+            const ipHostidEl = document.getElementById('ip-hostid');
+            const ipNetworkEl = document.getElementById('ip-network');
+            const ipBroadcastEl = document.getElementById('ip-broadcast');
+            const ipMaskEl = document.getElementById('ip-mask');
+            ipInput.addEventListener('input', () => {
+                const ip = ipInput.value;
+                const octets = ip.split('.');
+                if (octets.length === 4 && octets.every(o => o !== '' && o >= 0 && o <= 255)) {
+                    const firstOctet = parseInt(octets[0]);
+                    let ipClass = '', netId = '', hostId = '', network = '', broadcast = '', mask = '';
+                    if (firstOctet >= 1 && firstOctet <= 126) {
+                        ipClass = 'A'; netId = octets[0]; hostId = `${octets[1]}.${octets[2]}.${octets[3]}`; network = `${netId}.0.0.0`; broadcast = `${netId}.255.255.254`; mask = '255.0.0.0';
+                    } else if (firstOctet >= 128 && firstOctet <= 191) {
+                        ipClass = 'B'; netId = `${octets[0]}.${octets[1]}`; hostId = `${octets[2]}.${octets[3]}`; network = `${netId}.0.0`; broadcast = `${netId}.255.254`; mask = '255.255.0.0';
+                    } else if (firstOctet >= 192 && firstOctet <= 223) {
+                        ipClass = 'C'; netId = `${octets[0]}.${octets[1]}.${octets[2]}`; hostId = octets[3]; network = `${netId}.0`; broadcast = `${netId}.254`; mask = '255.255.255.0';
+                    } else if (firstOctet >= 224 && firstOctet <= 239) { ipClass = 'D (Multicast)';
+                    } else if (firstOctet >= 240 && firstOctet <= 254) { ipClass = 'E (Experimental)';
+                    } else { ipClass = 'Inválida ou Reservada'; }
+                    ipClassEl.textContent = ipClass; ipNetidEl.textContent = netId || '-'; ipHostidEl.textContent = hostId || '-'; ipNetworkEl.textContent = network || '-'; ipBroadcastEl.textContent = broadcast || '-'; ipMaskEl.textContent = mask || '-';
+                } else {
+                    [ipClassEl, ipNetidEl, ipHostidEl, ipNetworkEl, ipBroadcastEl, ipMaskEl].forEach(el => el.textContent = '-');
+                }
+            });
+
+            const ipToBinaryInput = document.getElementById('ip-to-binary');
+            const binaryOutput = document.getElementById('binary-output');
+            ipToBinaryInput.addEventListener('input', () => {
+                const octets = ipToBinaryInput.value.split('.');
+                if (octets.length === 4 && octets.every(o => o >= 0 && o <= 255 && o !== '')) {
+                    binaryOutput.textContent = octets.map(o => parseInt(o).toString(2).padStart(8, '0')).join('.');
+                } else { binaryOutput.textContent = ''; }
+            });
+
+            const ipToDecimalInput = document.getElementById('ip-to-decimal');
+            const decimalOutput = document.getElementById('decimal-output');
+            ipToDecimalInput.addEventListener('input', () => {
+                 const octets = ipToDecimalInput.value.split('.');
+                 if(octets.length === 4 && octets.every(o => /^[01]{1,8}$/.test(o) && o !== '')) {
+                     decimalOutput.textContent = octets.map(o => parseInt(o, 2)).join('.');
+                 } else { decimalOutput.textContent = ''; }
+            });
+
+            let currentQuestionIndex = 0, score = 0;
+            const quizContentEl = document.getElementById('quiz-content');
+            const questionCounterEl = document.getElementById('question-counter');
+            const questionEl = document.getElementById('question');
+            const optionsContainer = document.getElementById('options-container');
+            const feedbackEl = document.getElementById('feedback');
+            const nextButton = document.getElementById('next-question');
+            const quizResultsEl = document.getElementById('quiz-results');
+
+            function startQuiz() {
+                quizData.sort(() => Math.random() - 0.5);
+                currentQuestionIndex = 0; score = 0;
+                quizResultsEl.innerHTML = '';
+                quizContentEl.style.display = 'block';
+                loadQuestion();
+            }
+
+            function loadQuestion() {
+                feedbackEl.style.display = 'none'; nextButton.style.display = 'none'; optionsContainer.innerHTML = '';
+                const currentQuestion = quizData[currentQuestionIndex];
+                questionEl.textContent = currentQuestion.question;
+                questionCounterEl.textContent = `Pergunta ${currentQuestionIndex + 1} de ${quizData.length}`;
+                const shuffledOptions = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+                shuffledOptions.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.addEventListener('click', selectAnswer);
+                    optionsContainer.appendChild(button);
+                });
+            }
+
+            function selectAnswer(e) {
+                const selectedButton = e.target;
+                const correctAnswer = quizData[currentQuestionIndex].answer;
+                Array.from(optionsContainer.children).forEach(button => {
+                    button.disabled = true;
+                    if (button.textContent === correctAnswer) button.classList.add('correct');
+                });
+                if (selectedButton.textContent === correctAnswer) {
+                    selectedButton.classList.add('correct');
+                    feedbackEl.textContent = "Correto! " + quizData[currentQuestionIndex].rationale;
+                    feedbackEl.className = 'correct'; score++;
+                } else {
+                    selectedButton.classList.add('incorrect');
+                    feedbackEl.textContent = "Incorreto. A resposta certa era: '" + correctAnswer + "'. " + quizData[currentQuestionIndex].rationale;
+                    feedbackEl.className = 'incorrect';
+                }
+                feedbackEl.style.display = 'block'; nextButton.style.display = 'inline-block';
+                nextButton.textContent = (currentQuestionIndex === quizData.length - 1) ? 'Ver Resultado Final' : 'Próxima Pergunta';
+            }
+            
+            nextButton.addEventListener('click', () => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) loadQuestion();
+                else showResults();
+            });
+
+            function showResults() {
+                quizContentEl.style.display = 'none';
+                const percentage = Math.round((score / quizData.length) * 100);
+                quizResultsEl.innerHTML = `<h2>Quiz Finalizado!</h2><p>Você acertou ${score} de ${quizData.length} perguntas (${percentage}%).</p><button id="restart-quiz">Tentar Novamente</button>`;
+                document.getElementById('restart-quiz').addEventListener('click', startQuiz);
+            }
+            
+            const modulesContainer = document.getElementById('modules-container');
+            modulesData.forEach(module => {
+                const card = document.createElement('div');
+                card.className = 'module-card';
+                card.innerHTML = `<h3>${module.name}</h3><p><strong>Tipo:</strong> ${module.type}</p><p>${module.spec}</p>`;
+                modulesContainer.appendChild(card);
+            });
+            
+            document.querySelector('.nav-btn[data-target="quiz"]').addEventListener('click', function() {
+                if (!this.dataset.quizStarted) {
+                    startQuiz();
+                    this.dataset.quizStarted = "true";
+                }
+            });
+        });
     </script>
 
 </body>
